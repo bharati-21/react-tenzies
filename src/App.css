@@ -1,38 +1,226 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  position: relative;
+  background-color: #0B2434;
+  padding: 20px;
+  font-family: 'Karla', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+main.main {
+  background-color: #F5F5F5;
+  min-height: 500px;
+  max-width: 500px;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+main.sub-main {
+  background-color: #F5F5F5;
+  height: 500px;
+  max-width: 500px;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.btn-start-game {
+  background: #5035FF;
+  box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+  border-radius: 3.81277px;
+  width: 100px;
+  height: 36px;
+  text-align: center;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 2.5rem;
+}
+
+.btn-start-game:active {
+  box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: 400;
+}
+
+.score-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+.dice-container {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.die-face {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  width: 3rem;
+  height: 3rem;
+  font-weight: bold;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  justify-items: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.die-face:hover {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.die-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #5035FF;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.btn-roll-dice {
+  background: #5035FF;
+  box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+  border-radius: 3.81277px;
+  width: 100px;
+  height: 36px;
+  text-align: center;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-roll-dice:active {
+  box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 400px) {
+  .die-face {
+    width: 40px;
+    height: 40px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .score-card {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin: 1rem auto;;
   }
+
+}
+
+
+
+@media screen and (max-width: 350px) {
+  .die-face {
+    width: 2rem;
+    height: 2rem;
+    gap: 5px;
+    padding: 2px;
+    font-size: 0.85rem;
+  }
+  
+  .die-dot {
+    height: 5px;
+    width: 5px;
+  }
+}
+
+.modal {
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 80%; 
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+
+/* The Close Button */
+.close {
+  color: red;
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
