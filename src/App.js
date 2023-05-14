@@ -6,8 +6,6 @@ import Confetti from 'react-confetti';
 import { useStopwatch } from 'react-timer-hook';
 import Modal from './components/Modal';
 
-
-
 function App() {
 
   const [startGame, setStartGame] = useState(false);
